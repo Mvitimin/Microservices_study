@@ -1,0 +1,9 @@
+digraph "food-ordering-system" {
+  node [shape="box",style="rounded",fontname="Helvetica",fontsize="14"]
+  edge [fontsize="10",fontname="Helvetica"]
+
+  // Node Definitions:
+  "com.food.ordering.system:food-ordering-system:pom:compile"[label=<food-ordering-system>]
+
+  // Edge Definitions:
+}
