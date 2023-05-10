@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.food.ordereing.system.domain.valueobject.BaseId;
 
 public class TrackingId extends BaseId<UUID> {
-	protected TrackingId(UUID value) {
+	public TrackingId(UUID value) {
 		super(value);
 	}
 }
