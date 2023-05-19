@@ -33,11 +33,15 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
 		private boolean active;
 
 		private Builder() {
-
 		}
 
-		public Builder restaurantId(RestaurantId restaurantId) {
-			this.restaurantId = restaurantId;
+		public Builder restaurantId(RestaurantId val) {
+			restaurantId = val;
+			return this;
+		}
+
+		public Builder products(List<Product> val) {
+			products = val;
 			return this;
 		}
 

@@ -9,7 +9,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 	private final Product product;
 	private final Integer quantity;
 	private final Money price;
-	private final Money subTotal;
+	private final Money subtotal;
 	private OrderId orderId;
 
 	void initializeOrderItem(OrderId orderId, OrderItemId orderItemId) {
@@ -17,17 +17,17 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 		super.setId(orderItemId);
 	}
 
-	boolean isPriceValid() {
-		return price.isGreaterThanZero() && price.equals(product.getPrice()) && price.multiply(quantity)
-			.equals(subTotal);
-	}
-
 	private OrderItem(Builder builder) {
 		super.setId(builder.orderItemId);
 		product = builder.product;
 		quantity = builder.quantity;
 		price = builder.price;
-		subTotal = builder.subTotal;
+		subtotal = builder.subtotal;
+	}
+
+	boolean isPriceValid() {
+		return price.isGreaterThanZero() && price.equals(product.getPrice()) && price.multiply(quantity)
+			.equals(subtotal);
 	}
 
 	public static Builder builder() {
@@ -51,7 +51,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 	}
 
 	public Money getSubTotal() {
-		return subTotal;
+		return subtotal;
 	}
 
 	public static final class Builder {
@@ -59,21 +59,33 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 		private Product product;
 		private int quantity;
 		private Money price;
-		private Money subTotal;
+		private Money subtotal;
 
 		private Builder() {
-
-		}
-
-		public Builder(Product product, Integer quantity, Money price, Money subTotal) {
-			this.product = product;
-			this.quantity = quantity;
-			this.price = price;
-			this.subTotal = subTotal;
 		}
 
 		public Builder orderItemId(OrderItemId val) {
 			orderItemId = val;
+			return this;
+		}
+
+		public Builder product(Product val) {
+			product = val;
+			return this;
+		}
+
+		public Builder quantity(int val) {
+			quantity = val;
+			return this;
+		}
+
+		public Builder price(Money val) {
+			price = val;
+			return this;
+		}
+
+		public Builder subtotal(Money val) {
+			subtotal = val;
 			return this;
 		}
 
