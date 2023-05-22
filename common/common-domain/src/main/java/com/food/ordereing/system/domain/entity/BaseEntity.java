@@ -20,6 +20,7 @@ public abstract class BaseEntity<ID> {
 		if (o == null || getClass() != o.getClass())
 			return false;
 		BaseEntity<?> that = (BaseEntity<?>)o;
+
 		return Objects.equals(id, that.id);
 	}
 
