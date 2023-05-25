@@ -14,9 +14,9 @@
     <modules>
         <module>order-domain</module>
         <module>order-application</module>
-        <module>order-dataaccess</module>
         <module>order-messaging</module>
         <module>order-container</module>
+        <module>order-data-access</module>
     </modules>
 
     <properties>
