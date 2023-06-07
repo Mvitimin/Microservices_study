@@ -17,6 +17,10 @@ public class Money {
 		return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;
 	}
 
+	public boolean isGreaterThan(Money money) {
+		return amount != null && amount.compareTo(money.getAmount()) > 0;
+	}
+
 	public Money add(Money money) {
 		return new Money(setScale(this.amount.add(money.getAmount())));
 	}
